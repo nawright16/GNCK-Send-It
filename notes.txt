@@ -1,0 +1,7 @@
+Notes
+Set Up -
+
+- Command: npx create-react-app gnck-chatify
+- Command: git branch Casey
+- Command: git checkout Casey
+
