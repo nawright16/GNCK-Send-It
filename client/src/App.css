@@ -1,3 +1,16 @@
-#icons > li {
-    text-decoration: none;
+* {
+    border: solid blue;
+}
+.nav {
+    width: 100px;
+}
+div > aside {
+    display: flex;
+}
+nav, li {
+    display: flexbox;
+    margin: none;
+}
+ul {
+    list-style-type: none;
 }
