@@ -1,4 +1,5 @@
-import './App.css';
+import ChatWindow from './components/ChatWindow'
+import Container from "@mui/material/Container";
 
 function App() {
   return (
@@ -27,7 +28,9 @@ function App() {
 
       </div>
       <div className="main">
-
+      <Container>
+        <ChatWindow />
+      </Container>
       </div>
     </div>
   );
