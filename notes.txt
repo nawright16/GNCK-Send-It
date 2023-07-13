@@ -4,6 +4,9 @@ Set Up -
 - Command: npx create-react-app gnck-chatify
 - Command: git branch Casey
 - Command: git checkout Casey
+- Command: npm i react-bootstrap
+- Command: npm i socket.io-client
+- Command: npm install @mui/icons-material @mui/material @emotion/styled @emotion/react
 
 Research - 
     bootstrap for chat styling
@@ -11,6 +14,14 @@ Research -
     add in div for navigation bar 
     will need aside panel for displaying contents related to specific icons
     main section for chats to display 
-    Command: npm i react-bootstrap
-    
+    changed direction for using Material UI for IconButton menu for allowing it to be more flexible
+
 Pull branch Kris
+
+ Steps Taken -
+    started with IconButtons for the nav bar menu
+    imported proper dependencies
+    used two icons to get started (IconButton is great for showing user something is being done when clicking)
+    added in some border css to help monitor and adjusted position
+    
+    
