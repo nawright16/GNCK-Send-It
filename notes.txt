@@ -5,3 +5,11 @@ Set Up -
 - Command: git branch Casey
 - Command: git checkout Casey
 
+Research - 
+    bootstrap for chat styling
+    gather needed navigation menu list
+    add in div for navigation bar 
+    will need aside panel for displaying contents related to specific icons
+    main section for chats to display 
+    Command: npm i react-bootstrap
+    
