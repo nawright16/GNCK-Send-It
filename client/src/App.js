@@ -1,4 +1,8 @@
-import ChatWindow from './components/ChatWindow'
+import "./App.css";
+import * as React from 'react';
+import IconButton from '@mui/material/IconButton';
+import { CreateOutlined, ChatBubbleOutline } from '@mui/icons-material';
+import ChatWindow from './components/ChatWindow';
 import Container from "@mui/material/Container";
 
 function App() {
@@ -8,11 +12,19 @@ function App() {
         <div className="icons">
           <ul>
             {/* create chat */}
-            <li></li>
+            <li>
+              <IconButton size="medium">
+                <CreateOutlined fontSize="medium" />
+              </IconButton>
+            </li>
             {/* friends */}
             <li></li>
             {/* chats */}
-            <li></li>
+            <li>
+              <IconButton size="medium">
+                <ChatBubbleOutline fontSize="medium" />
+              </IconButton>
+            </li>
             {/* notifications */}
             <li></li>
             {/* account/support */}
@@ -20,7 +32,7 @@ function App() {
             {/* toggle light/dark */}
             <li></li>
             {/* settings */}
-            <li></li>
+            {/* <li><SettingOulined fontSize="medium" /></li> */}
           </ul>
         </div>
       </div>
@@ -28,9 +40,9 @@ function App() {
 
       </div>
       <div className="main">
-      <Container>
-        <ChatWindow />
-      </Container>
+        <Container>
+          <ChatWindow />
+        </Container>
       </div>
     </div>
   );
