@@ -1,59 +1,50 @@
 import "./App.css";
 import * as React from 'react';
-import IconButton from '@mui/material/IconButton';
-import { CreateOutlined, ChatBubbleOutline, NotificationsOutlined, ViewComfyOutlined, SettingsOutlined } from '@mui/icons-material';
+
+import { List, ListItem, ListItemText, ListItemAvatar, Avatar, Divider} from "@mui/material";
 import ChatWindow from './components/ChatWindow';
 import Container from "@mui/material/Container";
 
 function App() {
   return (
     <div className="App">
-      <div className="nav">
-        <div className="icons">
-          <ul>
-            {/* create chat */}
-            <li>
-              <IconButton aria-label="create" color="pink" size="medium">
-                <CreateOutlined fontSize="medium" />
-              </IconButton>
-            </li>
-            {/* friends */}
-            <li>
-
-            </li>
-            {/* chats */}
-            <li>
-              <IconButton size="medium">
-                <ChatBubbleOutline fontSize="medium" />
-              </IconButton>
-            </li>
-            {/* notifications */}
-            <li> <IconButton size="medium">
-              <NotificationsOutlined fontSize="medium" />
-            </IconButton>
-            </li>
-            {/* account/support */}
-            <li>
-              <IconButton size="medium">
-                <ViewComfyOutlined fontSize="medium" />
-              </IconButton>
-            </li>
-            {/* toggle light/dark */}
-            <li>
-
-            </li>
-            {/* settings */}
-            <li>
-              <IconButton size="medium">
-                <SettingsOutlined fontSize="medium" />
-              </IconButton>
-            </li>
-          </ul>
-        </div>
-      </div>
+      
       <div className="aside">
         <div>
-          
+          <List
+            sx={{
+              width: '100%',
+              maxWidth: 360,
+              bgcolor: 'background.paper',
+            }}
+          >
+            <ListItem>
+              <ListItemAvatar>
+                <Avatar>
+                  {/* <ImageIcon /> */}
+                </Avatar>
+              </ListItemAvatar>
+              <ListItemText primary="Photos" secondary="Jan 9, 2014" />
+            </ListItem>
+            <Divider variant="inset" component="li" />
+            <ListItem>
+              <ListItemAvatar>
+                <Avatar>
+                  {/* <WorkIcon /> */}
+                </Avatar>
+              </ListItemAvatar>
+              <ListItemText primary="Work" secondary="Jan 7, 2014" />
+            </ListItem>
+            <Divider variant="inset" component="li" />
+            <ListItem>
+              <ListItemAvatar>
+                <Avatar>
+                  {/* <BeachAccessIcon /> */}
+                </Avatar>
+              </ListItemAvatar>
+              <ListItemText primary="Vacation" secondary="July 20, 2014" />
+            </ListItem>
+          </List>
         </div>
       </div>
       <div className="main">

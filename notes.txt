@@ -23,5 +23,6 @@ Pull branch Kris
     imported proper dependencies
     used two icons to get started (IconButton is great for showing user something is being done when clicking)
     added in some border css to help monitor and adjusted position
-    
+    imported list dependencies and avatars for open chats in the aside div
+    updated App css
     

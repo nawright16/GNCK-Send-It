@@ -1,6 +1,9 @@
 * {
     border: solid blue;
 }
+.App {
+    display: inline-flex;
+}
 .nav {
     width: 100px;
 }
