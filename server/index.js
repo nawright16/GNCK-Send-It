@@ -14,7 +14,7 @@ dotenv.config(); // Load environment variables from .env file
 mongoose.set("strictQuery", false); // Set strictQuery to false to address the deprecation warning
 
 async function startServer() {
-  await mongoose.connect(process.env.DB_CONNECTION_STRING, {
+  await mongoose.connect(process.env.DB_CONNECTION_URI, {
     useNewUrlParser: true,
   });
 
