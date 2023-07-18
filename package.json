@@ -1,7 +1,7 @@
 {
   "name": "chat-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "server.js",
   "scripts": {
     "start": "node backend/server.js",
@@ -21,8 +21,17 @@
     "express": "^4.17.1",
     "express-async-handler": "^1.1.4",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.12.9",
+    "mongodb": "^5.7.0",
+    "mongoose": "^5.13.20",
     "nodemon": "^2.0.7",
     "socket.io": "^4.1.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Krisvong/GNCK-Chatify.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Krisvong/GNCK-Chatify/issues"
+  },
+  "homepage": "https://github.com/Krisvong/GNCK-Chatify#readme"
 }

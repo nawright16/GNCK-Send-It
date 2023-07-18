@@ -16,6 +16,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  
 
   // Access the browser history object for navigation
   const history = useHistory();
@@ -82,8 +83,9 @@ const Login = () => {
   };
 
   return (
-    <VStack spacing="10px" height="400px">
-      <FormControl id="email" isRequired>
+    <VStack spacing="10px" height="400px"   >
+      <FormControl id="email" isRequired >
+    
         <FormLabel>Email Address</FormLabel>
         <Input
           value={email}
@@ -113,8 +115,6 @@ const Login = () => {
       <Button
         bg="#d9fff8ff"
         color="black"
-        borderColor="black" // Added border color
-        borderWidth="1px" // Added border width
         width="100%"
         style={{ marginTop: 15 }}
         onClick={submitHandler}
@@ -127,8 +127,6 @@ const Login = () => {
         variant="solid"
         bg="#aa7bc3ff"
         color="black"
-        borderColor="black" // Added border color
-        borderWidth="1px" // Added border width
         width="100%"
         onClick={() => {
           setEmail("guest@example.com");

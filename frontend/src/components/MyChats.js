@@ -54,10 +54,10 @@ const MyChats = ({ fetchAgain }) => {
       flexDir="column"
       alignItems="center"
       p={3}
-      bg="white"
+      bg="rgba(0, 0, 0, 0.4)"
       w={{ base: "100%", md: "31%" }}
       borderRadius="lg"
-      borderWidth="1px"
+     
     >
       <Box
         pb={3}
@@ -66,6 +66,7 @@ const MyChats = ({ fetchAgain }) => {
         fontFamily="Work sans"
         d="flex"
         w="100%"
+      
         justifyContent="space-between"
         alignItems="center"
       >
@@ -73,6 +74,7 @@ const MyChats = ({ fetchAgain }) => {
         <GroupChatModal>
           <Button
             d="flex"
+            bg="#aa7bc3"
             fontSize={{ base: "17px", md: "10px", lg: "17px" }}
             rightIcon={<AddIcon />}
           >
@@ -84,7 +86,7 @@ const MyChats = ({ fetchAgain }) => {
         d="flex"
         flexDir="column"
         p={3}
-        bg="#F8F8F8"
+        bg="rgba(0, 0, 0, 0.5)"
         w="100%"
         h="100%"
         borderRadius="lg"
@@ -97,7 +99,7 @@ const MyChats = ({ fetchAgain }) => {
               <Box
                 onClick={() => setSelectedChat(chat)}
                 cursor="pointer"
-                bg={selectedChat === chat ? "#38B2AC" : "#E8E8E8"}
+                bg={selectedChat === chat ? "#aa7bc3C" : "#d9fff8"}
                 color={selectedChat === chat ? "white" : "black"}
                 px={3}
                 py={2}
