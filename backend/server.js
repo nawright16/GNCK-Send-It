@@ -1,5 +1,6 @@
 const express = require("express");
 const connectDB = require("./config/db");
+const mongoose = require("mongoose")
 const dotenv = require("dotenv");
 const userRoutes = require("./routes/userRoutes");
 const chatRoutes = require("./routes/chatRoutes");
@@ -36,13 +37,14 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
+
 // -------------------------- Deployment ------------------------------
 
 // Error Handling middlewares
 app.use(notFound); // 404 Not Found middleware
 app.use(errorHandler); // Custom error handling middleware
 
-const PORT = process.env.PORT; // Set the port from environment variable
+const PORT = process.env.PORT || 5001; // Set the port from environment variable
 
 const server = app.listen(
   PORT,
