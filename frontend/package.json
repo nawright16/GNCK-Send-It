@@ -1,5 +1,4 @@
-{
-  "name": "frontend",
+{  "name": "frontend",
   "version": "0.1.0",
   "proxy": "http://127.0.0.1:5001",
   "private": true,
@@ -26,8 +25,8 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "react-scripts --openssl-legacy-provider start",
-    "build": "react-scripts --openssl-legacy-provider build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -50,6 +49,7 @@
     ]
   },
   "main": "index.js",
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "description": ""
