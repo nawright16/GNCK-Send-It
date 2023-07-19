@@ -37,7 +37,6 @@ function Homepage() {
         borderRadius="lg"
         borderWidth="1px"
       >
-<<<<<<< HEAD
         <Text
           bgGradient="linear(to-l, #11b5e4ff, #f2cd5dff, #aa7bc3ff)"
           bgClip="text"
@@ -57,14 +56,6 @@ function Homepage() {
         borderWidth="1px"
         color="#272932"
       >
-=======
-        <Text fontSize="48px" fontFamily="Montserrat"  color="#11b5e4" fontWeight="700" textShadow="2px 2px 2px #272932" >
-          Send-It
-        </Text>
-      </Box>
-      {/* Authentication tabs */}
-      <Box bg="rgba(0, 0, 0, 0.3)" w="100%" p={4} borderRadius="lg" borderWidth="1px" color="#272932"  >
->>>>>>> 2621efecda4adc7407192bbf190d85924d17d7df
         <Tabs isFitted variant="soft-rounded">
           <TabList mb="1em">
             <Tab>Login</Tab>
