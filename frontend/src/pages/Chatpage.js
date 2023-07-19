@@ -9,6 +9,7 @@ const Chatpage = () => {
   const [fetchAgain, setFetchAgain] = useState(false); // State for triggering fetching data again
   const { user } = ChatState(); // Accessing chat-related state using the ChatState hook
 
+
   return (
     <div style={{ width: "100%" }}>
       {user && <SideDrawer />} {/* Render the SideDrawer component if the user is logged in */}
