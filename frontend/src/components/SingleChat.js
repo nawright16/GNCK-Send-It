@@ -195,7 +195,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
             pb={3}
             px={2}
             w="100%"
-            fontFamily="Work Sans"
+            fontFamily= 'Sora'
             d="flex"
             justifyContent={{ base: "space-between" }}
             alignItems="center"
@@ -275,7 +275,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
       ) : (
         // Displayed when no chat is selected
         <Box d="flex" alignItems="center" justifyContent="center" h="100%">
-          <Text fontSize="3xl" pb={3} fontFamily="Work Sans">
+          <Text fontSize="3xl" pb={3} fontFamily= 'Sora'>
             Click on a user to start chatting
           </Text>
         </Box>

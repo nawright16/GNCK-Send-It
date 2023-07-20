@@ -24,6 +24,7 @@ const Signup = () => {
   const submitHandler = async () => {
     // Handle form submission
     setPicLoading(true);
+
     if (!name || !email || !password || !confirmpassword) {
       // Input validation: check if all fields are filled
       toast({
@@ -34,6 +35,7 @@ const Signup = () => {
         position: "bottom",
       });
       setPicLoading(false);
+
       return;
     }
     if (password !== confirmpassword) {
@@ -212,7 +214,6 @@ const Signup = () => {
         variant="solid"
         bg="#d9fff8ff"
         color="#aa7bc3"
-        
       >
         Sign Up
       </Button>
