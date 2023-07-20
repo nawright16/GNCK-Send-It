@@ -19,13 +19,13 @@ const Chatpage = () => {
         w="100%"
         h="91.5vh"
         p="10px"
-        bg="rgba(0, 0, 0, 0.3)"
+        bg="rgba(0, 0, 0, 0.2)"
       >
         {user && <MyChats fetchAgain={fetchAgain} />}{" "}
         {/* Render the MyChats component if the user is logged in */}
         {user && (
           <Chatbox
-            bg="rgba(0, 0, 0, 0.3)"
+            bg="rgba(0, 0, 0, 0.2)"
             fetchAgain={fetchAgain}
             setFetchAgain={setFetchAgain}
           />
