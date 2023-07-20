@@ -1,4 +1,4 @@
-import "./Homepage.css"
+import "./Homepage.css";
 import {
   Box,
   Container,
@@ -39,17 +39,25 @@ function Homepage() {
         borderWidth="1px"
       >
         <Text
-  bgGradient='linear(to-l, #11b5e4ff, #f2cd5dff, #aa7bc3ff)'
-  bgClip='text'
-  fontSize='6xl'
-  fontFamily='chalkboard'
-  fontWeight='extrabold'
->
-  Send It
-</Text>
+          bgGradient="linear(to-l, #11b5e4ff, #f2cd5dff, #aa7bc3ff)"
+          bgClip="text"
+          fontSize="6xl"
+          fontFamily="chalkboard"
+          fontWeight="extrabold"
+        >
+          Send It
+        </Text>
       </Box>
       {/* Authentication tabs */}
-      <Box bg="white" w="100%" p={4} borderRadius="lg" borderWidth="1px" color="#aa7bc3ff" textShadow=".5px .5px 0px #000000" >
+      <Box
+        bg="white"
+        w="100%"
+        p={4}
+        borderRadius="lg"
+        borderWidth="1px"
+        color="#aa7bc3ff"
+        textShadow=".5px .5px 0px #000000"
+      >
         <Tabs isFitted variant="soft-rounded">
           <TabList mb="1em">
             <Tab>Login</Tab>
@@ -58,11 +66,11 @@ function Homepage() {
           {/* Tab panels */}
           <TabPanels>
             <TabPanel>
-               {/* Login component */}
+              {/* Login component */}
               <Login />
             </TabPanel>
             <TabPanel>
-               {/* Signup component */}
+              {/* Signup component */}
               <Signup />
             </TabPanel>
           </TabPanels>
