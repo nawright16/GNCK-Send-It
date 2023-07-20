@@ -242,7 +242,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
               )}
               <Input
                 variant="filled"
-                bg="#E0E0E0"
+                bg="#d9fff8"
                 placeholder="Enter a message.."
                 value={newMessage}
                 onChange={typingHandler}

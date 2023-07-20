@@ -149,7 +149,7 @@ function SideDrawer() {
           </Button>
         </Tooltip>
         <Text
-          bgGradient="linear(to-l, #11b5e4ff, #f2cd5dff, #aa7bc3ff)"
+          bgGradient="linear(to-l, #d9fff8, #11b5e4ff )"
           bgClip="text"
           fontSize="6xl"
           fontFamily="chalkboard"
