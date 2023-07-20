@@ -1,43 +1,38 @@
-// represents an item in a user list. It displays the user's avatar, name, and email.
-
 import { Avatar } from "@chakra-ui/avatar";
 import { Box, Text } from "@chakra-ui/layout";
-import { ChatState } from "../../Context/ChatProvider";
 
-const UserListItem = ({ handleFunction }) => {
-  // Access user information from the ChatState context
-  const { user } = ChatState();
-
+// UserListItem component displays an item in the user list
+const UserListItem = ({ user, handleFunction }) => {
   return (
     <Box
-      onClick={handleFunction} // Click event handler
-      cursor="pointer" // Cursor style
-      bg="#E8E8E8" // Background color
+      onClick={handleFunction}
+      cursor="pointer"
+      bg="#E8E8E8"
       _hover={{
-        background: "#38B2AC", // Background color on hover
-        color: "white", // Text color on hover
+        background: "#38B2AC",
+        color: "white",
       }}
-      w="100%" // Width
-      d="flex" // Flex display
-      alignItems="center" // Vertical alignment
-      color="black" // Text color
-      px={3} // Horizontal padding
-      py={2} // Vertical padding
-      mb={2} // Bottom margin
-      borderRadius="lg" // Rounded corner
+      w="100%"
+      d="flex"
+      alignItems="center"
+      color="black"
+      px={3}
+      py={2}
+      mb={2}
+      borderRadius="lg"
     >
       <Avatar
-        mr={2} // Right margin
-        size="sm" // Avatar size
-        cursor="pointer" // Cursor style
-        name={user.name} // User name (for fallback text)
-        src={user.pic} // User avatar image source
+        mr={2}
+        size="sm"
+        cursor="pointer"
+        name={user.name}
+        src={user.pic}
       />
       <Box>
-        <Text>{user.name}</Text> {/* Display user's name */}
+        <Text>{user.name}</Text>
         <Text fontSize="xs">
-          <b>Email : </b>
-          {user.email} {/* Display user's email */}
+          <b>Email: </b>
+          {user.email}
         </Text>
       </Box>
     </Box>
