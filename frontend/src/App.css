@@ -10,7 +10,7 @@
 .App {
   min-height: 100vh;
   display: flex;
-  background-image: linear-gradient(150deg, #f2cd5d, #11b5e4);;
+  background-image: linear-gradient(150deg, #aa7bc3, #11b5e4);;
   background-position: center;
   background-size: cover;
 }

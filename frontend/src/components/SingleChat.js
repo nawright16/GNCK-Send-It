@@ -15,22 +15,18 @@ import animationData from "../animations/typing.json";
 import io from "socket.io-client";
 import UpdateGroupChatModal from "./miscellaneous/UpdateGroupChatModal";
 import { ChatState } from "../Context/ChatProvider";
-
-const ENDPOINT = "http://localhost:5001";
-let socket;
+const ENDPOINT = "http://localhost:5000"; // "https://talk-a-tive.herokuapp.com"; -> After deployment
+var socket, selectedChatCompare;
 
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
-  // State variables
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(false);
   const [newMessage, setNewMessage] = useState("");
   const [socketConnected, setSocketConnected] = useState(false);
   const [typing, setTyping] = useState(false);
   const [istyping, setIsTyping] = useState(false);
-  const [selectedChatCompare, setSelectedChatCompare] = useState(null);
   const toast = useToast();
 
-  // Animation options for Lottie animation
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -39,12 +35,8 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
       preserveAspectRatio: "xMidYMid slice",
     },
   };
-
-  // Accessing selectedChat and user from ChatState context
   const { selectedChat, setSelectedChat, user, notification, setNotification } =
     ChatState();
-
-  // Fetches messages for the selected chat
 
   const fetchMessages = async () => {
     if (!selectedChat) return;
@@ -68,7 +60,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
       socket.emit("join chat", selectedChat._id);
     } catch (error) {
       toast({
-        title: "Error Occurred!",
+        title: "Error Occured!",
         description: "Failed to Load the Messages",
         status: "error",
         duration: 5000,
@@ -78,7 +70,6 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
     }
   };
 
-  // Sends a new message
   const sendMessage = async (event) => {
     if (event.key === "Enter" && newMessage) {
       socket.emit("stop typing", selectedChat._id);
@@ -94,15 +85,15 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
           "/api/message",
           {
             content: newMessage,
-            chatId: selectedChat._id,
+            chatId: selectedChat,
           },
           config
         );
         socket.emit("new message", data);
-        setMessages((prevMessages) => [...prevMessages, data]);
+        setMessages([...messages, data]);
       } catch (error) {
         toast({
-          title: "Error Occurred!",
+          title: "Error Occured!",
           description: "Failed to send the Message",
           status: "error",
           duration: 5000,
@@ -114,60 +105,38 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
   };
 
   useEffect(() => {
-    // Connect to the socket and set up event listeners
     socket = io(ENDPOINT);
     socket.emit("setup", user);
     socket.on("connected", () => setSocketConnected(true));
     socket.on("typing", () => setIsTyping(true));
     socket.on("stop typing", () => setIsTyping(false));
 
-    return () => {
-      // Clean up the socket connection when the component unmounts
-      socket.disconnect();
-    };
-  }, [user]);
+    // eslint-disable-next-line
+  }, []);
 
   useEffect(() => {
-    // Fetch messages when the selected chat changes
     fetchMessages();
 
-// eslint-disable-next-line
-    setSelectedChatCompare(selectedChat); // eslint-disable-next-line
+    selectedChatCompare = selectedChat;
+    // eslint-disable-next-line
   }, [selectedChat]);
 
-// eslint-disable-next-line
   useEffect(() => {
-    // Listen for new messages from socket
-    socket.on("message received", (newMessageReceived) => {
+    socket.on("message recieved", (newMessageRecieved) => {
       if (
-        !selectedChatCompare || // If chat is not selected or doesn't match the current chat
-        selectedChatCompare._id !== newMessageReceived.chat._id
+        !selectedChatCompare || // if chat is not selected or doesn't match current chat
+        selectedChatCompare._id !== newMessageRecieved.chat._id
       ) {
-        if (!notification.includes(newMessageReceived)) {
-          setNotification((prevNotification) => [
-            newMessageReceived,
-            ...prevNotification,
-          ]);
-          setFetchAgain((prevFetchAgain) => !prevFetchAgain);
+        if (!notification.includes(newMessageRecieved)) {
+          setNotification([newMessageRecieved, ...notification]);
+          setFetchAgain(!fetchAgain);
         }
       } else {
-        setMessages((prevMessages) => [...prevMessages, newMessageReceived]);
+        setMessages([...messages, newMessageRecieved]);
       }
     });
+  });
 
-    // Clean up the event listener when the component unmounts
-    return () => {
-      socket.off("message received");
-    };
-  }, [
-    fetchAgain,
-    notification,
-    selectedChatCompare,
-    setFetchAgain,
-    setNotification,
-  ]);
-
-  // Handles typing event and emits typing and stop typing events to the socket
   const typingHandler = (e) => {
     setNewMessage(e.target.value);
 
@@ -198,10 +167,11 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
             pb={3}
             px={2}
             w="100%"
-            fontFamily="Work Sans"
+            fontFamily="Work sans"
             d="flex"
             justifyContent={{ base: "space-between" }}
             alignItems="center"
+            color="#d9fff8"
           >
             <IconButton
               d={{ base: "flex", md: "none" }}
@@ -232,7 +202,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
             flexDir="column"
             justifyContent="flex-end"
             p={3}
-            bg="rgba(0, 0, 0, 0.5)"
+            bg="rgba(0, 0, 0, 0.4)"
             w="100%"
             h="100%"
             borderRadius="lg"
@@ -258,18 +228,22 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
               isRequired
               mt={3}
             >
-              {istyping && (
-                <Lottie
-                  options={defaultOptions}
-                  width={70}
-                  style={{ marginBottom: 15, marginLeft: 0 }}
-                />
+              {istyping ? (
+                <div>
+                  <Lottie
+                    options={defaultOptions}
+                    // height={50}
+                    width={70}
+                    style={{ marginBottom: 15, marginLeft: 0 }}
+                  />
+                </div>
+              ) : (
+                <></>
               )}
               <Input
                 variant="filled"
                 bg="#E0E0E0"
-                color="#E0E0E0"
-                placeholder="Enter a message..."
+                placeholder="Enter a message.."
                 value={newMessage}
                 onChange={typingHandler}
               />
@@ -277,9 +251,9 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
           </Box>
         </>
       ) : (
-        // Displayed when no chat is selected
+        // to get socket.io on same page
         <Box d="flex" alignItems="center" justifyContent="center" h="100%">
-          <Text fontSize="3xl" pb={3} fontFamily="Work Sans">
+          <Text fontSize="3xl" pb={3} fontFamily="Work sans">
             Click on a user to start chatting
           </Text>
         </Box>

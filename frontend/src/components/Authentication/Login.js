@@ -83,29 +83,33 @@ const Login = () => {
   };
 
   return (
-    <VStack spacing="10px" height="400px"   >
+    <VStack spacing="12px" height="400px"   >
       <FormControl id="email" isRequired >
     
-        <FormLabel>Email Address</FormLabel>
+        <FormLabel color="#d9fff8ff">Email Address</FormLabel>
         <Input
           value={email}
           type="email"
           placeholder="Enter Your Email Address"
+          bg="rgba(0, 0, 0, 0.2)"
+          color="#d9fff8"
           onChange={(e) => setEmail(e.target.value)}
         />
       </FormControl>
       <FormControl id="password" isRequired>
-        <FormLabel>Password</FormLabel>
+        <FormLabel color="#d9fff8ff">Password</FormLabel>
         <InputGroup size="md">
           <Input
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             type={show ? "text" : "password"}
-            placeholder="Enter password"
+            placeholder="Enter Your Password"
+            color="#d9fff8"
+            bg="rgba(0, 0, 0, 0.2)"
           />
            {/* Toggle password visibility button */}
           <InputRightElement width="4.5rem">
-            <Button h="1.75rem" size="sm" onClick={handleClick}>
+            <Button h="1.75rem" size="sm" bg="#d9fff8ff" onClick={handleClick}>
               {show ? "Hide" : "Show"}
             </Button>
           </InputRightElement>
@@ -114,7 +118,7 @@ const Login = () => {
       {/* Login button */}
       <Button
         bg="#d9fff8ff"
-        color="black"
+        color="#aa7bc3"
         width="100%"
         style={{ marginTop: 15 }}
         onClick={submitHandler}
@@ -126,7 +130,7 @@ const Login = () => {
       <Button
         variant="solid"
         bg="#aa7bc3ff"
-        color="black"
+        color="#d9fff8"
         width="100%"
         onClick={() => {
           setEmail("guest@example.com");
