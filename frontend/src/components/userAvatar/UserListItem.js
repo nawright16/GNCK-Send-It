@@ -1,8 +1,10 @@
 import { Avatar } from "@chakra-ui/avatar";
 import { Box, Text } from "@chakra-ui/layout";
+import { ChatState } from "../../Context/ChatProvider";
 
 // UserListItem component displays an item in the user list
-const UserListItem = ({ user, handleFunction }) => {
+const UserListItem = ({ handleFunction }) => {
+  const { user } = ChatState();
   return (
     <Box
       onClick={handleFunction}
