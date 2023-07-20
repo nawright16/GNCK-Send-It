@@ -35,9 +35,10 @@ function Homepage() {
         bg="rgba(0, 0, 0, 0.4)"
         w="100%"
         m="40px 0 15px 0"
+        borderRadius= "1em"
       >
         <Text
-          bgGradient="linear(to-l, #aa7bc3ff, #11b5e4ff, #f2cd5dff )"
+          bgGradient="linear(to-l, #d9fff8, #11b5e4ff )"
           bgClip="text"
           fontSize="6xl"
           fontFamily="chalkboard"
@@ -49,6 +50,7 @@ function Homepage() {
       {/* Authentication tabs */}
       <Box
         bg="rgba(0, 0, 0, 0.4)"
+        borderRadius= "1em"
         w="100%"
         p={4}
         color="#aa7bc3ff"
