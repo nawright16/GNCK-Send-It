@@ -17,9 +17,17 @@ const allUsers = asyncHandler(async (req, res) => {
 
   // Find all users based on the provided keyword (search query)
   // Exclude the logged-in user (_id: { $ne: req.user._id })
-  const users = await User.find(keyword).find({ _id: { $ne: req.user._id } });
+
+  const users = await User.find({
+    $and: [{ _id: { $ne: req.user._id } }, keyword],
+  });
+
   res.send(users);
 });
+
+//   const users = await User.find(keyword).find({ _id: { $ne: req.user._id } });
+//   res.send(users);
+// });
 
 // @description     Register new user
 // @route           POST /api/user/
